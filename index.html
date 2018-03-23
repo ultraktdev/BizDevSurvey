@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Business Development Survey</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="styleku.css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,800" rel="stylesheet">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script type ="text/javascript" src="js/bootstrap.min.js"></script> 
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
+    <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    
+    <!-- REPO GITHUB https://github.com/ultraktdev/BizDevSurvey.git -->
+</head>
+<body>
+    <div class="wrapper">
+        <!-- JUDUL -->
+        <nav class="navbar navbar-light kepala">
+            <a class="navbar-brand" href="#">
+                <p><i class="fas fa-mobile-alt"></i>&nbsp;&nbsp;<span>Online</span>&nbsp;e-Commerce</p>
+            </a>
+        </nav>
+        
+        <div class="container">
+            <!-- ISI -->
+            <form id="formulir">
+                <br>
+                <div class="form-group">
+                    <label for="survey1">1. What device do you use for electronic communication?</label>
+                    <select class="form-control" id="survey1" required>
+                        <option value="">Choose...</option>
+                        <option value="PC / Laptop">PC / Laptop</option>
+                        <option value="Tablet / iPad">Tablet / iPad</option>
+                        <option value="Smartphone">Smartphone</option>
+                        <option value="others">Others</option>
+                    </select>
+                </div>
+                <hr>
+                <div class="form-group">
+                    <label for="survey2">2. Have you shop online?</label>
+                    <select class="form-control" id="survey2" required>
+                        <option value="">Choose...</option>
+                        <option value="once a month">Once a month</option>
+                        <option value="a few times a month">A few times a month</option>
+                        <option value="very often">Very often</option>
+                        <option value="never">Never</option>
+                    </select>
+                </div>
+                <hr>
+                <div class="form-group">
+                    <label for="survey">3. Have you sell something online?</label>
+                    <select class="form-control" id="survey3" required>
+                        <option value="">Choose...</option>
+                        <option value="C2C like Carousell, Zalora, eBay, etc.">C2C like Carousell, Zalora, eBay, etc.</option>
+                        <option value="B2C like Qoo10, Lazada, Amazon, etc.">B2C like Qoo10, Lazada, Amazon, etc.</option>
+                        <option value="as a Dropshipper">As a Dropshipper</option>
+                        <option value="never">Never</option>
+                    </select>
+                    <small>C2C = Customer to Customer&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;B2C = Business to Customer</small>
+                </div>
+                <hr>
+                <div class="form-group">
+                    <label for="survey4">4. Are you interested having your own online business?</label>
+                    <select class="form-control" id="survey4" required>
+                        <option value="">Choose...</option>
+                        <option value="very not interested">Very not interested</option>
+                        <option value="not interested">Not interested</option>
+                        <option value="interested">Interested</option>
+                        <option value="very interested">Very interested</option>
+                    </select>
+                </div>
+                <hr>
+                <div class="form-group">
+                    <label for="survey5">5. Are you open to receive online business information?</label>
+                    <select class="form-control" id="survey5" required>
+                        <option value="">Choose...</option>
+                        <option value="very not open">Very not open</option>
+                        <option value="not open">Not open</option>
+                        <option value="open, but not now">Open, but not now</option>
+                        <option value="open, right away">Open, receive information right away</option>
+                    </select>
+                </div>
+                <br>
+                <div class="kontak">
+                    <p>This business development information can be sent to:</p>
+                    <div class="form-group">
+                        <label for="formGroupExampleInput"><i class="fab fa-whatsapp"></i><strong> WhatsApp</strong></label>
+                        <input type="number" class="form-control" id="nomorWA" placeholder="Your WhatsApp Number" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="formGroupExampleInput2"><i class="far fa-user"></i><strong> Nama</strong></label>
+                        <input type="text" class="form-control" id="namaLengkap" placeholder="Your Full Name" required>
+                    </div>
+                </div>
+
+                <input type="submit" class="btn btn-primary btn-lg btn-block tombol" value="Send">
+
+            </form>
+        </div>
+    </div>
+
+    <!-- SCRIPT -->
+    <script>
+        $(document).ready(function(){
+            $('#formulir').submit(function(x){
+                // $('.kontak').toggle()
+                x.preventDefault();
+                
+                var namaLengkap = $('#namaLengkap').val().toUpperCase(); 
+                var nomorWA = $('#nomorWA').val();
+                var survey1 = $('#survey1').val();
+                var survey2 = $('#survey2').val();
+                var survey3 = $('#survey3').val();
+                var survey4 = $('#survey4').val();
+                var survey5 = $('#survey5').val();
+                
+                // Message WA
+                var urlencodedtext = encodeURIComponent("Hello, I'm *" + namaLengkap + "*.\n" + "I use *" + survey1 + "* to communicate electronically, " + "I shop online *" + survey2 + "*. " + "Online selling experience: *" + survey3 + "*, " + "I'm *" + survey4 + "* to have my own online business, and I'm *" + survey5 + "* to receive information via *" + nomorWA + "* about online business development.");
+                
+                // Kirim WA
+                var whatsappphonenumber = 6282177771078; // Jeffry Hermanto
+                var whatsapp_url = "https://api.whatsapp.com/send?phone="+whatsappphonenumber+"&text="+urlencodedtext;
+                window.location.href = whatsapp_url;
+
+                // window.location = "selamat.html"                
+            });
+        });  
+    </script>
+</body>
+</html>
