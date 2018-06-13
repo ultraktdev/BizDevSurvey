@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,800" rel="stylesheet">
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <script src="js/jquery-3.3.1.min.js"></script>
-    <script type ="text/javascript" src="js/bootstrap.min.js"></script> 
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
 
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
@@ -20,18 +21,21 @@
     <link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
-    
+
     <!-- REPO GITHUB https://github.com/ultraktdev/BizDevSurvey.git -->
 </head>
+
 <body>
     <div class="wrapper">
         <!-- JUDUL -->
         <nav class="navbar navbar-light kepala">
             <a class="navbar-brand" href="#">
-                <p><i class="fas fa-mobile-alt"></i>&nbsp;&nbsp;<span>Online</span>&nbsp;e-Commerce</p>
+                <p>
+                    <i class="fas fa-mobile-alt"></i>&nbsp;&nbsp;
+                    <span>Online</span>&nbsp;e-Commerce</p>
             </a>
         </nav>
-        
+
         <div class="container">
             <!-- ISI -->
             <form id="formulir">
@@ -95,11 +99,17 @@
                 <div class="kontak">
                     <p>This business development information can be sent to:</p>
                     <div class="form-group">
-                        <label for="formGroupExampleInput"><i class="fab fa-whatsapp"></i><strong> WhatsApp</strong></label>
+                        <label for="formGroupExampleInput">
+                            <i class="fab fa-whatsapp"></i>
+                            <strong> WhatsApp</strong>
+                        </label>
                         <input type="number" class="form-control" id="nomorWA" placeholder="Your WhatsApp Number" required>
                     </div>
                     <div class="form-group">
-                        <label for="formGroupExampleInput2"><i class="far fa-user"></i><strong> Name</strong></label>
+                        <label for="formGroupExampleInput2">
+                            <i class="far fa-user"></i>
+                            <strong> Name</strong>
+                        </label>
                         <input type="text" class="form-control" id="namaLengkap" placeholder="Your Full Name" required>
                     </div>
                 </div>
@@ -112,30 +122,29 @@
 
     <!-- SCRIPT -->
     <script>
-        $(document).ready(function(){
-            $('#formulir').submit(function(x){
+        $(document).ready(function () {
+            $('#formulir').submit(function (x) {
                 // $('.kontak').toggle()
                 x.preventDefault();
-                
-                var namaLengkap = $('#namaLengkap').val().toUpperCase(); 
+
+                var namaLengkap = $('#namaLengkap').val().toUpperCase();
                 var nomorWA = $('#nomorWA').val();
                 var survey1 = $('#survey1').val();
                 var survey2 = $('#survey2').val();
                 var survey3 = $('#survey3').val();
                 var survey4 = $('#survey4').val();
                 var survey5 = $('#survey5').val();
-                
+
                 // Message WA
                 var urlencodedtext = encodeURIComponent("Hello, I'm *" + namaLengkap + "*.\n" + "I use *" + survey1 + "* to communicate electronically, " + "I shop online *" + survey2 + "*. " + "Online selling experience: *" + survey3 + "*, " + "I'm *" + survey4 + "* to have my own online business, and I'm *" + survey5 + "* to receive information via *" + nomorWA + "* about online business development.");
-                
+
                 // Kirim WA
                 var whatsappphonenumber = 62816805286; // Robert Angkasa
-                var whatsapp_url = "https://api.whatsapp.com/send?phone="+whatsappphonenumber+"&text="+urlencodedtext;
+                var whatsapp_url = "https://api.whatsapp.com/send?phone=" + whatsappphonenumber + "&text=" + urlencodedtext;
                 window.location.href = whatsapp_url;
-
-                // window.location = "selamat.html"                
             });
         });  
     </script>
 </body>
+
 </html>
